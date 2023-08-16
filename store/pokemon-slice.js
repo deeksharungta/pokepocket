@@ -9,7 +9,6 @@ export const fetchAllPokemon = createAsyncThunk("fetchAllPokemon", async () => {
   const data = await response.json();
   const allPokemon = data.results;
   const next = data.next;
-  // const previous = data.previous;
   const allPokemonData = [];
   for (const pokemon of data.results) {
     const pokemonRes = await fetch(pokemon.url);
@@ -21,13 +20,13 @@ export const fetchAllPokemon = createAsyncThunk("fetchAllPokemon", async () => {
 
 export const fetchNextPokemon = createAsyncThunk(
   "fetchNextPokemon",
-  async () => {
-    const response = await fetch(state.next);
+  async (_, { getState }) => {
+    const state = getState();
+    const nextUrl = state.pokemon.next;
+    const response = await fetch(nextUrl);
     const data = await response.json();
     const allPokemon = data.results;
     const next = data.next;
-    // const previous = data.previous;
-
     const allPokemonData = [];
     for (const pokemon of data.results) {
       const pokemonRes = await fetch(pokemon.url);
@@ -99,7 +98,7 @@ const pokemonSlice = createSlice({
       // state.previous = action.payload.previous;
     });
     builder.addCase(fetchNextPokemon.rejected, (state, action) => {
-      console.log("Error", action.payload);
+      console.error("Error");
       state.isError = true;
     });
 
