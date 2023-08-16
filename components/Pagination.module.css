@@ -1,0 +1,46 @@
+.pagination {
+  margin-top: 4.6rem;
+  border-radius: 3.8rem;
+  background: #eee;
+  display: flex;
+  gap: 3rem;
+  padding: 1.6rem 2rem;
+}
+
+.paginationButton {
+  border: none;
+  cursor: pointer;
+}
+
+.pageNumber {
+  border: none;
+  color: #656565;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 2.8rem;
+  height: 2.8rem;
+  text-align: center;
+}
+
+.pageNumber:hover,
+.pageNumber:active {
+  background-color: #d45c37;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.activePage {
+  background-color: #d45c37;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.ellipsis {
+  color: #656565;
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: 2.8rem;
+  height: 2.8rem;
+  text-align: center;
+}

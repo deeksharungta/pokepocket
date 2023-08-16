@@ -4,36 +4,22 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const baseUrl = "https://pokeapi.co/api/v2";
 
-export const fetchAllPokemon = createAsyncThunk("fetchAllPokemon", async () => {
-  const response = await fetch(`${baseUrl}/pokemon?limit=20`);
-  const data = await response.json();
-  const allPokemon = data.results;
-  const next = data.next;
-  const allPokemonData = [];
-  for (const pokemon of data.results) {
-    const pokemonRes = await fetch(pokemon.url);
-    const pokemonData = await pokemonRes.json();
-    allPokemonData.push(pokemonData);
-  }
-  return { allPokemon, allPokemonData, next };
-});
-
-export const fetchNextPokemon = createAsyncThunk(
-  "fetchNextPokemon",
-  async (_, { getState }) => {
-    const state = getState();
-    const nextUrl = state.pokemon.next;
-    const response = await fetch(nextUrl);
+export const fetchAllPokemon = createAsyncThunk(
+  "fetchAllPokemon",
+  async (pageNum) => {
+    const response = await fetch(
+      `${baseUrl}/pokemon?offset=${20 * (pageNum - 1)}limit=20`
+    );
     const data = await response.json();
     const allPokemon = data.results;
-    const next = data.next;
+    const count = data.count;
     const allPokemonData = [];
     for (const pokemon of data.results) {
       const pokemonRes = await fetch(pokemon.url);
       const pokemonData = await pokemonRes.json();
       allPokemonData.push(pokemonData);
     }
-    return { allPokemon, allPokemonData, next };
+    return { allPokemon, allPokemonData, count };
   }
 );
 
@@ -65,8 +51,7 @@ const pokemonSlice = createSlice({
     pokemonSpeciesData: {},
     pokemonEvolutionData: {},
     pokemonDataBase: [],
-    next: "",
-    previous: "",
+    count: 0,
     loading: false,
     isError: false,
   },
@@ -79,26 +64,10 @@ const pokemonSlice = createSlice({
       state.loading = false;
       state.allPokemon = action.payload.allPokemon;
       state.allPokemonData = action.payload.allPokemonData;
-      state.next = action.payload.next;
-      // state.previous = action.payload.previous;
+      state.count = action.payload.count;
     });
     builder.addCase(fetchAllPokemon.rejected, (state, action) => {
       console.log("Error", action.payload);
-      state.isError = true;
-    });
-
-    builder.addCase(fetchNextPokemon.pending, (state, action) => {
-      state.loading = true;
-    });
-    builder.addCase(fetchNextPokemon.fulfilled, (state, action) => {
-      state.loading = false;
-      state.allPokemon = action.payload.allPokemon;
-      state.allPokemonData = action.payload.allPokemonData;
-      state.next = action.payload.next;
-      // state.previous = action.payload.previous;
-    });
-    builder.addCase(fetchNextPokemon.rejected, (state, action) => {
-      console.error("Error");
       state.isError = true;
     });
 

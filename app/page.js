@@ -6,19 +6,19 @@ import PokemonItem from "@/components/PokemonItem";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchAllPokemon, fetchNextPokemon } from "@/store/pokemon-slice";
+import Pagination from "@/components/Pagination";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const pokemons = useSelector((state) => state.pokemon.allPokemonData);
+  const count = useSelector((state) => state.pokemon.count);
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(count / pokemons.length);
 
   useEffect(() => {
-    dispatch(fetchAllPokemon());
-  }, []);
-
-  const nextButtonHandler = () => {
-    dispatch(fetchNextPokemon());
-  };
+    dispatch(fetchAllPokemon(currentPage));
+  }, [currentPage]);
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -45,15 +45,6 @@ export default function Home() {
       </div>
 
       <div className={styles.container}>
-        {/* {pokemons.map((pokemon) => (
-          <PokemonItem
-            key={pokemon.id}
-            number={pokemon.id}
-            name={pokemon.name}
-            types={pokemon.types}
-            image={pokemon.sprites.other.home.front_default}
-          />
-        ))} */}
         {filteredPokemons.map((pokemon) => (
           <PokemonItem
             key={pokemon.id}
@@ -64,19 +55,11 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className={styles.action}>
-        <button onClick={nextButtonHandler} className={styles.btn}>
-          Next
-        </button>
-        {/* {previous != "" && (
-          <button onClick={previousButtonHandler} className={styles.btn}>
-            Previous
-          </button>
-        )}
-        {next != "" && (
-         
-        )} */}
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </main>
   );
 }
