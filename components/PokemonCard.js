@@ -77,7 +77,9 @@ const PokemonCard = (props) => {
           alt="background-pattern"
         />
         <div>
-          <p className={styles.number}>#00{props.number}</p>
+          <p className={styles.number}>
+            #{props.number?.toString().padStart(4, "0")}
+          </p>
           <div className={styles.names}>
             <h2 className={styles.name}>{props.name}</h2>
             <Image

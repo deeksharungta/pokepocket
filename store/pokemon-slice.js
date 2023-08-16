@@ -52,7 +52,7 @@ const pokemonSlice = createSlice({
     pokemonEvolutionData: {},
     pokemonDataBase: [],
     count: 0,
-    loading: false,
+    loading: true,
     isError: false,
   },
 

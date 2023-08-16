@@ -5,13 +5,14 @@ import styles from "./page.module.css";
 import PokemonItem from "@/components/PokemonItem";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchAllPokemon, fetchNextPokemon } from "@/store/pokemon-slice";
+import { fetchAllPokemon } from "@/store/pokemon-slice";
 import Pagination from "@/components/Pagination";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const pokemons = useSelector((state) => state.pokemon.allPokemonData);
   const count = useSelector((state) => state.pokemon.count);
+  const loading = useSelector((state) => state.pokemon.loading);
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(count / pokemons.length);
@@ -34,6 +35,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1 className={styles.logo}>PokePocket</h1>
+      {loading && <h1>Loading...</h1>}
+
       <div className={styles["search-wrapper"]}>
         <Image src="./search.svg" width={32} height={32} alt="search-icon" />
         <input
@@ -43,7 +46,6 @@ export default function Home() {
           onChange={handleSearchInputChange}
         />
       </div>
-
       <div className={styles.container}>
         {filteredPokemons.map((pokemon) => (
           <PokemonItem
@@ -51,7 +53,10 @@ export default function Home() {
             number={pokemon.id}
             name={pokemon.name}
             types={pokemon.types}
-            image={pokemon.sprites.other.home.front_default}
+            image={
+              pokemon.sprites.other.home.front_default ||
+              pokemon.sprites.front_default
+            }
           />
         ))}
       </div>

@@ -10,7 +10,7 @@ const colors = [
   { ice: "#8CDDD4" },
   { dragon: "#0180C7" },
   { normal: "#A3A49E" },
-  { electric: "#FBE273" },
+  { electric: "#e2cb68" },
   { poison: "#C261D4" },
   { fairy: "#F3A7E7" },
   { psychic: "#FE9F92" },

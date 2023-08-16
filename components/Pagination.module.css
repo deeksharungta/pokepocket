@@ -1,15 +1,23 @@
 .pagination {
-  margin-top: 4.6rem;
   border-radius: 3.8rem;
   background: #eee;
   display: flex;
   gap: 3rem;
   padding: 1.6rem 2rem;
+  width: max-content;
+  margin: auto;
+  margin-top: 4.6rem;
 }
 
 .paginationButton {
   border: none;
   cursor: pointer;
+}
+
+.paginationButton:disabled,
+.paginationButton:disabled:hover,
+.paginationButton:disabled:active {
+  cursor: not-allowed;
 }
 
 .pageNumber {
