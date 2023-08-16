@@ -1,0 +1,65 @@
+.main {
+  margin: 3.6rem 8rem;
+}
+
+.logo {
+  color: #d45c37;
+  font-family: Inter;
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 4.2rem;
+}
+
+.search-wrapper {
+  width: 65.1rem;
+  border-radius: 42px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  padding: 1.8rem 0 1.8rem 2rem;
+  margin: 0 auto;
+}
+
+.search {
+  background: #eee;
+  font-size: 2rem;
+  font-weight: 500;
+  border: none;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.container {
+  margin-top: 4.6rem;
+  display: grid;
+  grid-template-columns: repeat(4, 28rem);
+  gap: 4.6rem;
+  justify-content: center;
+}
+
+.action {
+  text-align: center;
+  margin-top: 4.6rem;
+}
+
+.btn {
+  border-radius: 2rem;
+  background: #d45c37;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1rem 2.4rem;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn-active {
+  background: #bf5332;
+}

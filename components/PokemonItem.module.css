@@ -1,0 +1,95 @@
+.container {
+  width: 28rem;
+  height: 37rem;
+  border-radius: 4rem;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  transition: transform 150ms ease-in-out;
+}
+
+.pattern {
+  position: absolute;
+}
+
+.top {
+  padding: 2.2rem 3rem 0 3rem;
+}
+
+.right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.number {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.name {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  text-transform: capitalize;
+}
+
+.types {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.type {
+  border-radius: 1.6rem;
+  background: #fff;
+  display: flex;
+  color: black;
+  align-items: center;
+  padding: 0.6rem;
+  gap: 0.3rem;
+}
+
+.type-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.background {
+  position: absolute;
+  margin: 1.5rem 0 0 5.4rem;
+}
+
+.background img {
+  -webkit-animation: spin 1s linear infinte;
+  -moz-animation: spin 1s linear infinte;
+  animation: spin 1s linear infinte;
+}
+
+.img {
+  position: relative;
+  margin: 1px 4px 0 12px;
+  text-align: right;
+  z-index: 1;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

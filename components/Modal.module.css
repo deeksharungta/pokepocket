@@ -1,0 +1,53 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: #121217;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 54rem;
+    left: calc(50% - 20rem);
+  }
+}
+/* Tablet size */
+@media (min-width: 768px) and (max-width: 991px) {
+  .modal.tablet {
+    width: 70%;
+    left: 15%;
+  }
+}
+
+/* Mobile size */
+@media (max-width: 767px) {
+  .modal.mobile {
+    width: 80%;
+    left: 10%;
+  }
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

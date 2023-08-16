@@ -1,0 +1,34 @@
+.chart-bar {
+  display: flex;
+  align-items: center;
+}
+
+.chart-bar__inner {
+  width: 26rem;
+  height: 0.5rem;
+  background-color: #eee;
+  overflow: hidden;
+  display: flex;
+  border-radius: 6px;
+}
+
+.chart-bar__fill {
+  border-radius: 6px;
+  background-color: #e74347;
+  width: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.chart-bar__label {
+  color: #777;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.chart-bar__value {
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: 1.9rem;
+}

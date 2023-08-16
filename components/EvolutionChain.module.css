@@ -1,0 +1,8 @@
+.pokemon-name {
+  color: #777;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
