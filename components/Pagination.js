@@ -1,15 +1,18 @@
-import React from "react";
 import styles from "./Pagination.module.css";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+
+import { useRouter } from "next/navigation";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const loading = useSelector((state) => state.pokemon.loading);
+  const router = useRouter();
+
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       window.scrollTo(0, 0);
       onPageChange(newPage);
     }
+
+    router.push(`?page=${newPage}`);
   };
 
   const renderPages = () => {
@@ -22,7 +25,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           key={1}
           className={`${styles.pageNumber}`}
           onClick={() => handlePageChange(1)}
-          disabled={loading}
         >
           {1}
         </button>
@@ -49,7 +51,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             page === currentPage ? styles.activePage : ""
           }`}
           onClick={() => handlePageChange(page)}
-          disabled={loading}
         >
           {page}
         </button>
@@ -69,7 +70,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           key={totalPages}
           className={styles.pageNumber}
           onClick={() => handlePageChange(totalPages)}
-          disabled={loading}
         >
           {totalPages}
         </button>
@@ -80,23 +80,30 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <div className={styles.pagination}>
-      <button
-        className={styles.paginationButton}
-        onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage === 1 || loading}
-      >
-        <Image src="./previous.svg" width={8} height={16} alt="Previous Icon" />
-      </button>
-      {renderPages()}
-      <button
-        className={styles.paginationButton}
-        onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage === totalPages || loading}
-      >
-        <Image src="./next.svg" width={8} height={16} alt="Next Icon" />
-      </button>
-    </div>
+    <>
+      <div className={styles.pagination}>
+        <button
+          className={styles.paginationButton}
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          <Image
+            src="./previous.svg"
+            width={8}
+            height={16}
+            alt="Previous Icon"
+          />
+        </button>
+        {renderPages()}
+        <button
+          className={styles.paginationButton}
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          <Image src="./next.svg" width={8} height={16} alt="Next Icon" />
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./EvolutionChain.module.css";
 import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPokemonDataEvolution } from "@/store/pokemon-slice";
+import Link from "next/link";
 
 const EvolutionChain = (props) => {
   const [pokemonDetails, setPokemonDetails] = useState(null);
@@ -22,15 +21,19 @@ const EvolutionChain = (props) => {
   return (
     <>
       <Image src="./Arrow.svg" height={24} width={32} alt="arrow-icon" />
-      <div>
+      <Link href={props.chain?.species.name}>
         <img
-          src={pokemonDetails?.sprites?.other.home.front_default}
+          src={
+            pokemonDetails?.sprites?.other.home.front_default ||
+            pokemonDetails?.sprites?.other["official-artwork"]?.front_default ||
+            pokemonDetails?.sprites?.front_default
+          }
           height={195}
           width={195}
           alt="evolution"
         />
         <p className={styles["pokemon-name"]}>{props.chain?.species.name}</p>
-      </div>
+      </Link>
       {props.chain?.evolves_to.length >= 1 && (
         <EvolutionChain chain={props.chain?.evolves_to[0]} />
       )}

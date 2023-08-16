@@ -50,7 +50,6 @@ const pokemonSlice = createSlice({
     pokemonData: {},
     pokemonSpeciesData: {},
     pokemonEvolutionData: {},
-    pokemonDataBase: [],
     count: 0,
     loading: true,
     isError: false,

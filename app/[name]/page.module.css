@@ -1,5 +1,23 @@
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.btn {
+  margin-top: 2.4rem;
+  border-radius: 2rem;
+  background: rgba(0, 0, 0, 0.05);
+  color: #777;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 1.6rem;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn-active {
+  background: rgba(0, 0, 0, 0.1);
 }

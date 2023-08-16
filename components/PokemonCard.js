@@ -5,6 +5,7 @@ import styles from "./PokemonCard.module.css";
 import getColorByName from "@/utils/colors";
 import PokemonTypeLarge from "./PokemonTypeLarge";
 import EvolutionChain from "./EvolutionChain";
+import Link from "next/link";
 
 const PokemonCard = (props) => {
   function convertHeight(meters) {
@@ -105,14 +106,16 @@ const PokemonCard = (props) => {
           <div className={styles.features}>
             <div className={styles["feature"]}>
               <p className={styles["feature-name"]}>Abilities</p>
-              <p className={styles["feature-value"]}>{abilityText}</p>
+              <p className={styles["feature-value"]}>
+                {abilityText || "No data found"}
+              </p>
             </div>
             <div className={styles["feature"]}>
               <p className={styles["feature-name"]}>Egg Groups</p>
 
               {props.egg_group && (
                 <p className={styles["feature-value"]}>
-                  {props.egg_group[0].name}
+                  {props.egg_group[0].name || "No data found"}
                 </p>
               )}
             </div>
@@ -120,13 +123,15 @@ const PokemonCard = (props) => {
               <p className={styles["feature-name"]}>Category</p>
               {props.category && (
                 <p className={styles["feature-value"]}>
-                  {props.category[7].genus}
+                  {props.category[7]?.genus || "No data found"}
                 </p>
               )}
             </div>
             <div className={styles["feature"]}>
               <p className={styles["feature-name"]}>Base Exp.</p>
-              <p className={styles["feature-value"]}>{props.base_experience}</p>
+              <p className={styles["feature-value"]}>
+                {props.base_experience || "No data found"}
+              </p>
             </div>
             <div className={styles["feature"]}>
               <p className={styles["feature-name"]}>Gender</p>
@@ -194,9 +199,14 @@ const PokemonCard = (props) => {
             style={evolutionColorStyle}
             className={styles["evolution-chain"]}
           >
-            <div>
+            <Link href={props.chain?.species.name}>
               <img
-                src={pokemonEvolutionDetails?.sprites?.other.home.front_default}
+                src={
+                  pokemonEvolutionDetails?.sprites?.other.home.front_default ||
+                  pokemonEvolutionDetails?.sprites?.other["official-artwork"]
+                    ?.front_default ||
+                  pokemonEvolutionDetails?.sprites?.front_default
+                }
                 height={195}
                 width={195}
                 alt={props.name}
@@ -204,7 +214,7 @@ const PokemonCard = (props) => {
               <p className={styles["pokemon-name"]}>
                 {props.chain?.species.name}
               </p>
-            </div>
+            </Link>
             {props.chain?.evolves_to.length > 0 && (
               <EvolutionChain chain={props.chain?.evolves_to[0]} />
             )}

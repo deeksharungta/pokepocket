@@ -1,6 +1,6 @@
 .container {
   width: 98.8rem;
-  height: 96.4rem;
+  /* height: 96.4rem; */
   border-radius: 20px;
   background: #fff;
 }
@@ -105,7 +105,6 @@
 .feature {
   display: flex;
   align-items: baseline;
-  /* justify-content: space-between; */
 }
 
 .feature-name {
