@@ -5,7 +5,7 @@
 }
 
 .section-top {
-  width: 98.8rem;
+  width: inherit;
   height: 21.9rem;
   border-radius: 20px;
   background: #5ac178;

@@ -24,7 +24,7 @@ const Chat = ({ name, type, onClose }) => {
   const [messages, setMessages] = useState([
     {
       role: "system",
-      content: `Welcome to the ${pokemonName} Chat! I am a friendly chatbot designed to emulate conversations with Pokemon. You can talk to ${pokemonName} just like you would in the Pokemon world. Type your messages below, and ${pokemonName} will respond with 10 words phrases that fit its personality.`,
+      content: `Welcome to the ${pokemonName} Chat! I am a friendly chatbot designed to emulate conversations with Pokemon. You can talk to ${pokemonName} just like you would in the Pokemon world. Type your messages below, and ${pokemonName} will respond with cheerful and playful phrases that fit its personality.`,
     },
   ]);
 
