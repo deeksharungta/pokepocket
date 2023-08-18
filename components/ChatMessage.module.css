@@ -4,12 +4,12 @@
 
 .chat-messages::-webkit-scrollbar-track {
   border-radius: 2rem;
-  background: #eee;
+  background: transparent;
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
   border-radius: 2rem;
-  background: #ccc;
+  background: transparent;
 }
 
 .wrapper {
