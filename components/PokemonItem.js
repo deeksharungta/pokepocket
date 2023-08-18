@@ -52,7 +52,7 @@ const PokemonItem = (props) => {
         />
       </div>
       <div className={styles.img}>
-        <img src={props.image} width={227} height={227} alt={props.name} />
+        <Image src={props.image} width={227} height={227} alt={props.name} />
       </div>
     </div>
   );

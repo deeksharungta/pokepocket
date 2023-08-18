@@ -28,7 +28,7 @@ const EvolutionChain = (props) => {
         className={styles.arrow}
       />
       <Link href={props.chain?.species.name}>
-        <img
+        <Image
           src={
             pokemonDetails?.sprites?.other.home.front_default ||
             pokemonDetails?.sprites?.other["official-artwork"]?.front_default ||

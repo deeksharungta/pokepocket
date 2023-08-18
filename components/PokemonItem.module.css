@@ -66,31 +66,9 @@
   margin: 1.5rem 0 0 5.4rem;
 }
 
-.background img {
-  -webkit-animation: spin 1s linear infinte;
-  -moz-animation: spin 1s linear infinte;
-  animation: spin 1s linear infinte;
-}
-
 .img {
   position: relative;
   margin: 1px 4px 0 12px;
   text-align: right;
   z-index: 1;
-}
-
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
 }

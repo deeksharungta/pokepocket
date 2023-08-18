@@ -46,7 +46,7 @@ const PokemonData = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPokemonData(pokemonName));
-  }, []);
+  }, [pokemonName]);
 
   return (
     <div className={styles.container}>

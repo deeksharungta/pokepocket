@@ -63,7 +63,7 @@ const PokemonCard = (props) => {
           height={100}
           alt="background-pattern"
         />
-        <img
+        <Image
           className={styles.img}
           src={props.image}
           width={277}
@@ -201,7 +201,7 @@ const PokemonCard = (props) => {
             className={styles["evolution-chain"]}
           >
             <Link href={props.chain?.species.name}>
-              <img
+              <Image
                 src={
                   pokemonEvolutionDetails?.sprites?.other.home.front_default ||
                   pokemonEvolutionDetails?.sprites?.other["official-artwork"]
