@@ -19,13 +19,15 @@
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 600;
   color: #333;
 }
 
 .error-text {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 600;
   color: #333;
 }
 

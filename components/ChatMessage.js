@@ -1,20 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./ChatMessage.module.css";
+import Dots from "@/utils/dots";
 
 const ChatMessage = ({ messages, pokemonName, isTyping, color }) => {
-  const [dots, setDots] = useState("");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (dots.length < 3) {
-        setDots(dots + ".");
-      } else {
-        setDots("");
-      }
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, [dots]);
   const chatMessagesRef = useRef(null);
 
   useEffect(() => {
@@ -35,7 +23,8 @@ const ChatMessage = ({ messages, pokemonName, isTyping, color }) => {
         ))}
         {isTyping && (
           <div className={styles["typing-message"]}>
-            {pokemonName} is typing{dots}
+            {pokemonName} is typing
+            <Dots />
           </div>
         )}
       </div>

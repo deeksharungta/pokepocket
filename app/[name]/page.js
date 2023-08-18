@@ -6,32 +6,15 @@ import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./page.module.css";
-import Lottie from "react-lottie";
-import loadingAnimationData from "../../utils/pokemon-animation";
-import errorAnimationData from "../../utils/error-animation";
 import Link from "next/link";
 import Chat from "@/components/Chat";
 import Image from "next/image";
+import Dots from "@/utils/dots";
 
 const PokemonData = () => {
   const [showChat, setShowChat] = useState(true);
   const router = useRouter();
-  const loadingDefaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: loadingAnimationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-  const errorDefaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: errorAnimationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+
   const pathName = usePathname();
   const pokemonName = pathName.replace("/", "");
 
@@ -52,14 +35,17 @@ const PokemonData = () => {
     <div className={styles.container}>
       {loading && (
         <div className={styles.loading}>
-          <Lottie options={loadingDefaultOptions} height={400} width={400} />
-          <p className={styles["loading-text"]}>Unleashing Poké Balls...</p>
+          <p className={styles["loading-text"]}>
+            {" "}
+            Loading
+            <Dots />
+          </p>
         </div>
       )}
       {isError && (
         <div className={styles.loading}>
           <p className={styles["error-text"]}>No data found!</p>
-          <Lottie options={errorDefaultOptions} height={400} width={400} />
+
           <button
             className={styles.btn}
             type="button"

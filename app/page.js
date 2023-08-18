@@ -9,28 +9,9 @@ import { fetchAllPokemon } from "@/store/pokemon-slice";
 import Pagination from "@/components/Pagination";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import Lottie from "react-lottie";
-import loadingAnimationData from "../utils/pokemon-animation";
-import errorAnimationData from "../utils/error-animation";
+import Dots from "@/utils/dots";
 
 export default function Home() {
-  const loadingDefaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: loadingAnimationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-  const errorDefaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: errorAnimationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
   const page = searchParams.get("page");
@@ -62,14 +43,16 @@ export default function Home() {
     <main className={styles.main}>
       {loading && (
         <div className={styles.loading}>
-          <Lottie options={loadingDefaultOptions} height={400} width={400} />
-          <p className={styles["loading-text"]}>Unleashing Poké Balls...</p>
+          <p className={styles["loading-text"]}>
+            Loading
+            <Dots />
+          </p>
         </div>
       )}
       {isError && (
         <div className={styles.loading}>
           <p className={styles["error-text"]}>No data found!</p>
-          <Lottie options={errorDefaultOptions} height={400} width={400} />
+
           <button
             className={styles.btn}
             type="button"
