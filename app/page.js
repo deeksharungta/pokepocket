@@ -41,6 +41,15 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Link
+        className={styles.logo}
+        href="?page=1"
+        onClick={() => {
+          setCurrentPage(1);
+        }}
+      >
+        PokePocket
+      </Link>
       {loading && (
         <div className={styles.loading}>
           <p className={styles["loading-text"]}>
@@ -64,15 +73,6 @@ export default function Home() {
       )}
       {!loading && !isError && (
         <>
-          <Link
-            className={styles.logo}
-            href="?page=1"
-            onClick={() => {
-              setCurrentPage(1);
-            }}
-          >
-            PokePocket
-          </Link>
           <div className={styles["search-wrapper"]}>
             <Image
               src="./search.svg"
