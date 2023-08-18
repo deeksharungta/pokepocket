@@ -23,16 +23,8 @@
   flex-direction: column;
   gap: 1.2rem;
   margin: 1.2rem 1.2rem;
-  overflow-y: scroll;
-  max-height: calc(52rem - 16rem);
-}
-
-.chat-messages {
-  overflow: hidden;
-}
-
-.chat-messages:hover {
   overflow: auto;
+  max-height: calc(52rem - 16rem);
 }
 
 .message {
