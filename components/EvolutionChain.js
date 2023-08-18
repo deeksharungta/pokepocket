@@ -28,16 +28,20 @@ const EvolutionChain = (props) => {
         className={styles.arrow}
       />
       <Link href={props.chain?.species.name}>
-        <Image
-          src={
-            pokemonDetails?.sprites?.other.home.front_default ||
-            pokemonDetails?.sprites?.other["official-artwork"]?.front_default ||
-            pokemonDetails?.sprites?.front_default
-          }
-          height={195}
-          width={195}
-          alt={props.chain?.species.name}
-        />
+        {!!pokemonDetails && (
+          <Image
+            src={
+              pokemonDetails?.sprites?.other.home.front_default ||
+              pokemonDetails?.sprites?.other["official-artwork"]
+                ?.front_default ||
+              pokemonDetails?.sprites?.front_default
+            }
+            height={195}
+            width={195}
+            alt={props.chain?.species.name}
+          />
+        )}
+
         <p className={styles["pokemon-name"]}>{props.chain?.species.name}</p>
       </Link>
       {props.chain?.evolves_to.length >= 1 && (

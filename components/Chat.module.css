@@ -1,5 +1,5 @@
 .container {
-  width: 37rem;
+  max-width: 36rem;
   max-height: 52rem;
   border-radius: 2rem;
   border: 1px solid #eee;

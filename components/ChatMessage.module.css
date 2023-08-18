@@ -56,6 +56,12 @@
   align-self: flex-end;
 }
 
+.system {
+  border-radius: 2rem 2rem 2rem 0;
+  background: rgba(119, 119, 119, 0.05);
+  align-self: flex-start;
+}
+
 .typing-message {
   max-width: 80%;
   font-size: 1.4rem;
@@ -66,4 +72,16 @@
   color: #888;
   background-color: #eee;
   border-radius: 2rem;
+}
+
+/**************************/
+/* BELOW 640px  */
+/**************************/
+@media (max-width: 40em) {
+  .message,
+  .typing-message {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    max-width: 70%;
+  }
 }

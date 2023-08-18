@@ -63,13 +63,16 @@ const PokemonCard = (props) => {
           height={100}
           alt="background-pattern"
         />
-        <Image
-          className={styles.img}
-          src={props.image}
-          width={277}
-          height={277}
-          alt={props.name}
-        />
+        {!!props.image && (
+          <Image
+            className={styles.img}
+            src={props.image}
+            width={277}
+            height={277}
+            alt={props.name}
+          />
+        )}
+
         <Image
           className={styles.background}
           src="./pokemonlogo.svg"
@@ -201,17 +204,21 @@ const PokemonCard = (props) => {
             className={styles["evolution-chain"]}
           >
             <Link href={props.chain?.species.name}>
-              <Image
-                src={
-                  pokemonEvolutionDetails?.sprites?.other.home.front_default ||
-                  pokemonEvolutionDetails?.sprites?.other["official-artwork"]
-                    ?.front_default ||
-                  pokemonEvolutionDetails?.sprites?.front_default
-                }
-                height={195}
-                width={195}
-                alt={props.chain?.species.name}
-              />
+              {!!pokemonEvolutionDetails && (
+                <Image
+                  src={
+                    pokemonEvolutionDetails?.sprites?.other.home
+                      .front_default ||
+                    pokemonEvolutionDetails?.sprites?.other["official-artwork"]
+                      ?.front_default ||
+                    pokemonEvolutionDetails?.sprites?.front_default
+                  }
+                  height={195}
+                  width={195}
+                  alt={props.chain?.species.name}
+                />
+              )}
+
               <p className={styles["pokemon-name"]}>
                 {props.chain?.species.name}
               </p>
