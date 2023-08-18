@@ -1,11 +1,11 @@
 .container {
-  width: 98.8rem;
-  /* height: 96.4rem; */
   border-radius: 20px;
   background: #fff;
+  overflow: hidden;
 }
 
 .section-top {
+  width: 98.8rem;
   height: 21.9rem;
   border-radius: 20px;
   background: #5ac178;
@@ -45,11 +45,13 @@
 }
 
 .pattern {
-  margin: 75px 0 0 35px;
+  top: 30%;
+  left: 5%;
 }
 
 .background {
-  margin: -5.4rem 8.6rem 2rem 64.8rem;
+  top: -25%;
+  left: 65%;
 }
 
 .types {
@@ -123,7 +125,7 @@
 }
 
 .measures {
-  width: 35.8rem;
+  width: fit-content;
   height: 7.8rem;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.05);
@@ -162,7 +164,7 @@
 }
 
 .section-evolution {
-  margin: 0 3rem;
+  margin: 2.4rem 3rem;
 }
 
 .evolution-heading {
@@ -188,4 +190,74 @@
   margin-top: 2rem;
   text-align: center;
   text-transform: capitalize;
+}
+
+/**************************/
+/* BELOW 1024px  */
+/**************************/
+@media (max-width: 64em) {
+  .section-top {
+    width: 60rem;
+  }
+
+  .section-middle {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  .evolution-chain {
+    flex-direction: column;
+    gap: 3.6rem;
+  }
+
+  .base-stats-chart,
+  .content {
+    margin: 0 auto;
+  }
+}
+
+/**************************/
+/* BELOW 640px  */
+/**************************/
+@media (max-width: 40em) {
+  .container {
+    width: 100vw;
+  }
+  .section-top {
+    width: 100%;
+    height: 16rem;
+  }
+
+  .img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .number {
+    margin: 10rem 0 0 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  .names {
+    margin: 0 0 0 1.2rem;
+  }
+
+  .name {
+    font-size: 2.6rem;
+  }
+
+  .types {
+    justify-content: center;
+    margin: 3.2rem 0;
+    gap: 0.6rem;
+  }
+
+  .base-stats-chart {
+    width: 100%;
+    padding: 0.8rem 2rem;
+  }
+
+  .base-stats-chart h3 {
+    font-size: 1.6rem;
+  }
 }

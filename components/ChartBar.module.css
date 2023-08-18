@@ -32,3 +32,25 @@
   margin-left: auto;
   margin-right: 1.9rem;
 }
+
+/**************************/
+/* BELOW 640px  */
+/**************************/
+@media (max-width: 40em) {
+  .chart-bar__inner {
+    width: 65%;
+  }
+
+  .chart-bar__label {
+    color: #777;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-right: 1rem;
+  }
+
+  .chart-bar__value {
+    color: #000;
+    font-size: 1.6rem;
+    margin-right: 1rem;
+  }
+}

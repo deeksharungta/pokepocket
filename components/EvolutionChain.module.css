@@ -6,3 +6,12 @@
   text-align: center;
   text-transform: capitalize;
 }
+
+/**************************/
+/* BELOW 1024px  */
+/**************************/
+@media (max-width: 64em) {
+  .arrow {
+    transform: rotate(90deg);
+  }
+}

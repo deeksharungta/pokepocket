@@ -34,7 +34,7 @@ const PokemonItem = (props) => {
           <p className={styles.number}>
             #{props.number.toString().padStart(4, "0")}
           </p>
-          <Image src="./heart.svg" width={20} height={20} alt="favorite-icon" />
+          {/* <Image src="./heart.svg" width={20} height={20} alt="favorite-icon" /> */}
         </div>
         <h2 className={styles.name}>{props.name}</h2>
         <div className={styles.types}>

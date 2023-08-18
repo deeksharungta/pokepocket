@@ -8,7 +8,7 @@ export const fetchAllPokemon = createAsyncThunk(
   "fetchAllPokemon",
   async (pageNum) => {
     const response = await fetch(
-      `${baseUrl}/pokemon?offset=${20 * (pageNum - 1)}limit=20`
+      `${baseUrl}/pokemon?offset=${36 * (pageNum - 1)}&limit=36`
     );
     const data = await response.json();
     const allPokemon = data.results;
@@ -58,31 +58,36 @@ const pokemonSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAllPokemon.pending, (state, action) => {
       state.loading = true;
+      state.isError = false;
     });
+
     builder.addCase(fetchAllPokemon.fulfilled, (state, action) => {
       state.loading = false;
+      state.isError = false;
       state.allPokemon = action.payload.allPokemon;
       state.allPokemonData = action.payload.allPokemonData;
       state.count = action.payload.count;
     });
     builder.addCase(fetchAllPokemon.rejected, (state, action) => {
-      console.log("Error", action.payload);
       state.isError = true;
+      state.loading = false;
     });
 
     builder.addCase(fetchPokemonData.pending, (state, action) => {
       state.loading = true;
+      state.isError = false;
     });
     builder.addCase(fetchPokemonData.fulfilled, (state, action) => {
       state.loading = false;
+      state.isError = false;
       state.pokemonData = action.payload.data1;
       state.pokemonSpeciesData = action.payload.data2;
       state.pokemonEvolutionData = action.payload.evolutionData;
     });
 
     builder.addCase(fetchPokemonData.rejected, (state, action) => {
-      console.log("Error", action.payload);
       state.isError = true;
+      state.loading = false;
     });
   },
   reducers: {},

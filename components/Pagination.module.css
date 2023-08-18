@@ -1,17 +1,25 @@
 .pagination {
   border-radius: 3.8rem;
-  background: #eee;
+  background: #fff;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 3rem;
   padding: 1.6rem 2rem;
   width: max-content;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 .paginationButton {
   border: none;
   cursor: pointer;
+  background-color: #fff;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .paginationButton:disabled,
@@ -28,6 +36,7 @@
   cursor: pointer;
   width: 2.8rem;
   height: 2.8rem;
+  background-color: #fff;
   text-align: center;
 }
 
@@ -51,4 +60,36 @@
   width: 2.8rem;
   height: 2.8rem;
   text-align: center;
+}
+
+/**************************/
+/* BELOW 992px  */
+/**************************/
+@media (max-width: 62em) {
+  .pagination {
+    gap: 1.6rem;
+    padding: 1rem 1.6rem;
+  }
+}
+
+/**************************/
+/* BELOW 640px  */
+/**************************/
+@media (max-width: 40em) {
+  .pagination {
+    /* gap: 1rem; */
+    padding: 1rem 1.2rem;
+  }
+
+  .pageNumber {
+    font-size: 1.6rem;
+    font-weight: 400;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .ellipsis {
+    width: 2rem;
+    height: 2rem;
+  }
 }

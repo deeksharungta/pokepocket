@@ -1,0 +1,85 @@
+.container {
+  width: 37rem;
+  max-height: 52rem;
+  border-radius: 2rem;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.top {
+  border-radius: 2rem 2rem 0rem 0rem;
+  background: #5ac178;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.heading {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1.4rem 0;
+  text-transform: capitalize;
+}
+
+.btn-close {
+  margin-left: 12rem;
+  margin-right: 1.5rem;
+  background: transparent;
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-input-form {
+  border-radius: 2.2rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  margin: 1.2rem;
+}
+
+.chat-input-form input {
+  background: transparent;
+  border-radius: 2.2rem;
+  padding: 1.4rem 1.8rem;
+  border: none;
+  width: 90%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Inter", sans-serif;
+}
+
+.chat-input-form input:focus {
+  outline: none;
+}
+
+.chat-input-form input:disabled,
+.chat-input-form input:disabled:hover,
+.chat-input-form input:disabled:active,
+.btn-send:disabled,
+.btn-send:disabled:hover,
+.btn-send:disabled:active {
+  cursor: not-allowed;
+}
+
+.btn-send {
+  background: transparent;
+  border: none;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}

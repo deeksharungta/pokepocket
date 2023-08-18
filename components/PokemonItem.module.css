@@ -5,6 +5,7 @@
   color: #fff;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .container:hover {

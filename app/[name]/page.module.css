@@ -2,22 +2,76 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-text {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.error-text {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.logo {
+  color: #d45c37;
+  font-family: Inter;
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 1.6rem 0;
 }
 
 .btn {
-  margin-top: 2.4rem;
-  border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.05);
-  color: #777;
+  color: #555;
   border: none;
   font-size: 1.6rem;
-  font-weight: 600;
-  padding: 1rem 1.6rem;
+  font-weight: 400;
   cursor: pointer;
+  margin: 1rem 0;
+  text-decoration: underline;
 }
 
 .btn:hover,
-.btn-active {
-  background: rgba(0, 0, 0, 0.1);
+.btn:active {
+  color: #333;
+}
+
+.chatbox {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+
+.chat-btn {
+  border: none;
+  background: #d45c37;
+  height: 26.1px;
+  width: 29px;
+  padding: 2.8rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat-btn:hover {
+  transform: scale(1.1);
 }

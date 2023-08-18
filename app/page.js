@@ -9,19 +9,39 @@ import { fetchAllPokemon } from "@/store/pokemon-slice";
 import Pagination from "@/components/Pagination";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Lottie from "react-lottie";
+import loadingAnimationData from "../utils/pokemon-animation";
+import errorAnimationData from "../utils/error-animation";
 
 export default function Home() {
+  const loadingDefaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loadingAnimationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const errorDefaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: errorAnimationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
   const page = searchParams.get("page");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(Number(page) || 1);
 
-  const { allPokemonData, count, loading } = useSelector(
+  const { allPokemonData, count, loading, isError } = useSelector(
     (state) => state.pokemon
   );
 
-  const totalPages = Math.ceil(count / 20);
+  const totalPages = Math.ceil(count / 36);
 
   useEffect(() => {
     dispatch(fetchAllPokemon(currentPage));
@@ -40,9 +60,26 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
+      {loading && (
+        <div className={styles.loading}>
+          <Lottie options={loadingDefaultOptions} height={400} width={400} />
+          <p className={styles["loading-text"]}>Unleashing Poké Balls...</p>
+        </div>
+      )}
+      {isError && (
+        <div className={styles.loading}>
+          <p className={styles["error-text"]}>No data found!</p>
+          <Lottie options={errorDefaultOptions} height={400} width={400} />
+          <button
+            className={styles.btn}
+            type="button"
+            onClick={() => router.back()}
+          >
+            Go back
+          </button>
+        </div>
+      )}
+      {!loading && !isError && (
         <>
           <Link
             className={styles.logo}
@@ -62,7 +99,7 @@ export default function Home() {
             />
             <input
               className={styles.search}
-              placeholder="Search By Name or Number"
+              placeholder="Search in this page"
               value={searchQuery}
               onChange={handleSearchInputChange}
             />

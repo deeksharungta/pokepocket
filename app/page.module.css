@@ -1,35 +1,59 @@
 .main {
-  margin: 3.6rem 8rem;
+  margin: 3.6rem;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-text {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.error-text {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
 }
 
 .logo {
   color: #d45c37;
-  font-family: Inter;
   font-size: 3.6rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
-  margin-bottom: 4.2rem;
   text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .search-wrapper {
-  width: 65.1rem;
-  border-radius: 42px;
-  background: #eee;
+  width: fit-content;
+  border-radius: 4.2rem;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem;
-  padding: 1.8rem 0 1.8rem 2rem;
-  margin: 0 auto;
+  padding: 1.8rem 2rem;
+  margin: 3.6rem auto;
 }
 
 .search {
-  width: 65.1rem;
-  background: #eee;
+  width: 48rem;
+  background: #fff;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 400;
   border: none;
 }
 
@@ -38,7 +62,6 @@
 }
 
 .container {
-  margin-top: 4.6rem;
   display: grid;
   grid-template-columns: repeat(4, 28rem);
   gap: 4.6rem;
@@ -64,4 +87,50 @@
 .btn:hover,
 .btn-active {
   background: #bf5332;
+}
+
+/**************************/
+/* BELOW 1344px  */
+/**************************/
+@media (max-width: 84em) {
+  .container {
+    grid-template-columns: repeat(3, 28rem);
+  }
+}
+
+/**************************/
+/* BELOW 992px  */
+/**************************/
+@media (max-width: 62em) {
+  .container {
+    grid-template-columns: repeat(2, 28rem);
+  }
+  .search-wrapper {
+    padding: 1.2rem 1.6rem;
+  }
+  .search {
+    width: 32rem;
+  }
+}
+
+/**************************/
+/* BELOW 672px  */
+/**************************/
+@media (max-width: 42em) {
+  .container {
+    gap: 2.4rem;
+  }
+}
+
+/**************************/
+/* BELOW 640px  */
+/**************************/
+@media (max-width: 40em) {
+  .container {
+    grid-template-columns: repeat(1, 28rem);
+  }
+
+  .search {
+    width: 20rem;
+  }
 }

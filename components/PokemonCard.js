@@ -83,14 +83,15 @@ const PokemonCard = (props) => {
           </p>
           <div className={styles.names}>
             <h2 className={styles.name}>{props.name}</h2>
-            <Image
+            {/* <Image
               src="./heart.svg"
               width={24}
               height={24}
               alt="favorite-icon"
-            />
+            /> */}
           </div>
         </div>
+        {/* <button onClick={}>Go Back</button> */}
       </div>
       <div className={styles.types}>
         {props.types?.map((type) => (
@@ -102,7 +103,7 @@ const PokemonCard = (props) => {
           <h3>Base Stats</h3>
           {props.baseStats && <Chart stats={props.baseStats} />}
         </div>
-        <div>
+        <div className={styles.content}>
           <div className={styles.features}>
             <div className={styles["feature"]}>
               <p className={styles["feature-name"]}>Abilities</p>
@@ -209,7 +210,7 @@ const PokemonCard = (props) => {
                 }
                 height={195}
                 width={195}
-                alt={props.name}
+                alt={props.chain?.species.name}
               />
               <p className={styles["pokemon-name"]}>
                 {props.chain?.species.name}

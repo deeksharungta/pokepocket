@@ -20,7 +20,13 @@ const EvolutionChain = (props) => {
 
   return (
     <>
-      <Image src="./Arrow.svg" height={24} width={32} alt="arrow-icon" />
+      <Image
+        src="./Arrow.svg"
+        height={24}
+        width={32}
+        alt="arrow-icon"
+        className={styles.arrow}
+      />
       <Link href={props.chain?.species.name}>
         <img
           src={
@@ -30,7 +36,7 @@ const EvolutionChain = (props) => {
           }
           height={195}
           width={195}
-          alt="evolution"
+          alt={props.chain?.species.name}
         />
         <p className={styles["pokemon-name"]}>{props.chain?.species.name}</p>
       </Link>
