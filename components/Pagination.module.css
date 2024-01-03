@@ -1,6 +1,6 @@
 .pagination {
   border-radius: 3.8rem;
-  background: #fff;
+  background: rgb(247, 242, 242);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
 .paginationButton {
   border: none;
   cursor: pointer;
-  background-color: #fff;
+  background-color: rgb(247, 242, 242);
   width: 8px;
   height: 8px;
   display: flex;
@@ -36,7 +36,7 @@
   cursor: pointer;
   width: 2.8rem;
   height: 2.8rem;
-  background-color: #fff;
+  background-color: rgb(247, 242, 242);
   text-align: center;
 }
 

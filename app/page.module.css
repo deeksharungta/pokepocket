@@ -1,5 +1,6 @@
 .main {
-  margin: 3.6rem;
+  padding: 3.6rem;
+  background: #fff;
 }
 
 .loading {
@@ -47,8 +48,9 @@
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem;
-  padding: 1.8rem 2rem;
+  padding: 1rem 2rem;
   margin: 3.6rem auto;
+  border: 2px solid #eee;
 }
 
 .search {
