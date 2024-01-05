@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import styles from "./Chat.module.css";
 import Image from "next/image";
@@ -10,8 +11,6 @@ const Chat = ({ name, type, onClose }) => {
   const handleButtonClick = () => {
     onClose(false);
   };
-
-  const OPEN_API_KEY = process.env.NEXT_PUBLIC_OPEN_API_KEY;
 
   const color = type ? getColorByName(type[0]?.type?.name) : "#000";
 
@@ -40,22 +39,13 @@ const Chat = ({ name, type, onClose }) => {
   };
 
   const chatData = async (userMessage) => {
+    const message = [...messages, { role: "user", content: userMessage }];
     try {
-      const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${OPEN_API_KEY}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [...messages, { role: "user", content: userMessage }],
-            temperature: 0.7,
-          }),
-        }
-      );
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        body: JSON.stringify(message),
+      });
+
       if (!response.ok) {
         throw new Error("Chat API request failed");
       }
@@ -80,6 +70,8 @@ const Chat = ({ name, type, onClose }) => {
       }
     } catch (error) {
       console.error("Error while fetching chat data:", error);
+      setIsTyping(false);
+    } finally {
       setIsTyping(false);
     }
   };
