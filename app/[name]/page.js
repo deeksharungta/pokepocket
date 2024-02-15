@@ -2,7 +2,7 @@
 
 import PokemonCard from "@/components/PokemonCard";
 import { fetchPokemonData } from "@/store/pokemon-slice";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./page.module.css";
@@ -11,12 +11,10 @@ import Chat from "@/components/Chat";
 import Image from "next/image";
 import Dots from "@/utils/dots";
 
-const PokemonData = () => {
+const PokemonData = ({ params }) => {
   const [showChat, setShowChat] = useState(true);
   const router = useRouter();
-
-  const pathName = usePathname();
-  const pokemonName = pathName.replace("/", "");
+  const pokemonName = params.name;
 
   const {
     pokemonData,
