@@ -7,7 +7,20 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "PokePocket: Your Portable Pokédex",
   description:
-    "Carry the world of Pokémon in your pocket with PokePocket! Unleash the power of this ultimate Pokédex companion app, designed for Trainers of all levels. Explore a vast collection of Pokémon species, from the classics to the latest discoveries. Dive into rich profiles showcasing captivating artwork, comprehensive details, and in-depth insights into each creature's traits, evolutions, and habitats. Whether you're on a quest to catch 'em all or seeking knowledge to outsmart your opponents, PokePocket is your indispensable tool on the journey to becoming a Pokémon Master.",
+    "A Pokémon directory built using data from the PokeAPI, offering detailed species information. It includes a GPT-3.5-powered chatbot for interacting with your favorite Pokémon.",
+  openGraph: {
+    title: "PokePocket: Your Portable Pokédex",
+    description:
+      "A Pokémon directory built using data from the PokeAPI, offering detailed species information. It includes a GPT-3.5-powered chatbot for interacting with your favorite Pokémon.",
+    url: "https://pokepocket.vercel.app/",
+    siteName: "PokePocket",
+    images: [
+      {
+        url: "https://opengraph.b-cdn.net/production/documents/b2ccc7d6-92c5-4d62-a92a-711b9134eff0.png?token=3wFTpxNJvZh7AY_gm-ck7CP4Ng4di3yUTEdbVvCo8MI&height=630&width=1200&expires=33244026189",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
