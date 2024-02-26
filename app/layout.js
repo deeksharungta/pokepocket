@@ -5,11 +5,11 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "PokePocket: Your Portable Pokédex",
+  title: "PokePocket",
   description:
     "A Pokémon directory built using data from the PokeAPI, offering detailed species information. It includes a GPT-3.5-powered chatbot for interacting with your favorite Pokémon.",
   openGraph: {
-    title: "PokePocket: Your Portable Pokédex",
+    title: "PokePocket",
     description:
       "A Pokémon directory built using data from the PokeAPI, offering detailed species information. It includes a GPT-3.5-powered chatbot for interacting with your favorite Pokémon.",
     url: "https://pokepocket.vercel.app/",
