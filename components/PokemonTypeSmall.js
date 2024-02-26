@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./PokemonType.module.css";
 import Image from "next/image";
 import getColorByName from "@/utils/colors";

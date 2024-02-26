@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./EvolutionChain.module.css";
 import Image from "next/image";
 import Link from "next/link";

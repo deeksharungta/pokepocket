@@ -1,6 +1,5 @@
 "use-client";
 
-import React from "react";
 import styles from "./PokemonItem.module.css";
 import Image from "next/image";
 import PokemonTypeSmall from "./PokemonTypeSmall";

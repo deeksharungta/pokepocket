@@ -3,7 +3,7 @@
 import PokemonCard from "@/components/PokemonCard";
 import { fetchPokemonData } from "@/store/pokemon-slice";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./page.module.css";
 import Link from "next/link";
@@ -27,6 +27,7 @@ const PokemonData = ({ params }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPokemonData(pokemonName));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemonName]);
 
   return (
